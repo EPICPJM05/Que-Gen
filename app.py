@@ -10,7 +10,7 @@ def generate_questions():
     difficulty = data.get('difficulty')
     
     # Dummy questions for demonstration
-    questions = [f"{topic} question {i} for grade {grade} at {difficulty} difficulty" for i in range(1, 18)]
+    questions = [f"{topic} question {i} for grade {grade} at {difficulty} difficulty" for i in range(1, 10)]
     return jsonify({"questions": questions})
 
 if __name__ == '__main__':

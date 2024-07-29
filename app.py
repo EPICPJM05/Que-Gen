@@ -21,7 +21,7 @@ def generate_questions():
     grade = data.get('grade')
     difficulty = data.get('difficulty')
 
-    prompt = f"Generate 15 questions for {topic} for grade {grade} at {difficulty} difficulty level."
+    prompt = f"Generate questions for {topic} for grade {grade} at {difficulty} difficulty level."
 
     response = requests.post(HUGGING_FACE_API_URL, headers=headers, json={"inputs": prompt})
 
@@ -32,4 +32,5 @@ def generate_questions():
         return jsonify({"error": "Failed to generate questions"}), response.status_code
 
 if __name__ == '__main__':
-    app.run(debug=True)
+    port = int(os.environ.get('PORT', 5000))
+    app.run(host='0.0.0.0', port=port, debug=True)

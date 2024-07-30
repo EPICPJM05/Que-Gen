@@ -23,7 +23,7 @@ def generate_questions():
     return jsonify({"questions": questions})
 
 def generate_ai_questions(topic, grade, difficulty):
-    url = "https://api-inference.huggingface.co/models/meta-llama/Meta-Llama-3.1-8B-Instruct"
+    url = "https://api-inference.huggingface.co/models/openai-community/gpt2"
     headers = {"Authorization": f"Bearer {HUGGING_FACE_API_KEY}"}
     payload = {
         "inputs": f"Generate 10 questions for a {difficulty}, {grade} grade student on the topic of {topic}.",

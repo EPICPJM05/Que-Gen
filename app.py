@@ -5,7 +5,7 @@ from dotenv import load_dotenv
 
 load_dotenv()
 
-HUGGING_FACE_API_KEY = os.getenv("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")
+HUGGING_FACE_API_KEY = os.getenv("HUGGING_FACE_API_KEY")
 
 app = Flask(__name__)
 
@@ -33,6 +33,11 @@ def generate_ai_questions(topic, grade, difficulty):
         }
     }
     response = requests.post(url, headers=headers, json=payload)
+    
+    # Debugging: Print response status and text
+    print("Response status:", response.status_code)
+    print("Response text:", response.text)
+
     if response.status_code == 200:
         result = response.json()
         return [item["generated_text"] for item in result]

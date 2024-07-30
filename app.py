@@ -26,7 +26,7 @@ def generate_ai_questions(topic, grade, difficulty):
     url = "https://api-inference.huggingface.co/models/meta-llama/Meta-Llama-3.1-8B-Instruct"
     headers = {"Authorization": f"Bearer {HUGGING_FACE_API_KEY}"}
     payload = {
-        "inputs": f"Generate 10 questions for a {difficulty} {grade} student on the topic of {topic}.",
+        "inputs": f"Generate 10 questions for a {difficulty}, {grade} grade student on the topic of {topic}.",
         "parameters": {
             "max_length": 100,
             "num_return_sequences": 5

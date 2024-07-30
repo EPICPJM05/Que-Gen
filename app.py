@@ -4,7 +4,7 @@ app = Flask(__name__)
 
 @app.route('/generate-questions', methods=['POST'])
 def generate_questions():
-    data = request.get_json()  # Ensure the request is parsed as JSON
+    data = request.get_json()
     if not data:
         return jsonify({"error": "Invalid input"}), 400
     
@@ -12,7 +12,7 @@ def generate_questions():
     grade = data.get('grade')
     difficulty = data.get('difficulty')
     
-    # Replace with actual question generation logic
+    # Dummy questions for demonstration
     questions = [
         "What is 2 + 2?",
         "Solve for x in the equation x + 5 = 10."
